@@ -1,0 +1,63 @@
+Nesse projeto vamos utilizar TypeOrm que vai nos ajudar a utilizar o typescritp e ele e um ORM 
+O TypeOrm vai nos trazer uma estrutura que vai nos ajudar facilitando umas coisas em alguns aspectos ele vai substituir o Sequelize facilitando a criação do projeto
+
+Precisamos instalar o TypeOrm globalmente na nossa maquina
+npm install -g typeorm
+
+A maneira mais rápida de começar com o TypeORM é usar seus comandos CLI para gerar um projeto inicial. O início rápido funciona apenas se você estiver usando o TypeORM em um aplicativo NodeJS.
+
+Para criar um novo projeto usando a CLI, execute o seguinte comando: npx typeorm init --name MyProject --database postgres. Onde name está o nome do seu projeto e database é o banco de dados que você usará.
+
+Execute a linha de comando para esse projeto
+npx typeorm init --name Authentication_TS  --database mysql --express
+
+Este comando irá gerar um novo projeto seguintes arquivos:
+MyProject
+├── src                   // place of your TypeScript code
+│   ├── entity            // place where your entities (database models) are stored
+│   │   └── User.ts       // sample entity
+│   ├── migration         // place where your migrations are stored
+│   ├── data-source.ts    // data source and all connection configuration
+│   └── index.ts          // start point of your application
+├── .gitignore            // standard gitignore file
+├── package.json          // node module dependencies
+├── README.md             // simple readme file
+└── tsconfig.json         // TypeScript compiler options
+
+Adicionando a pasta middleware e routes
+Essa e uma estrutura do padrão MVC um pouco diferente por causa do middleware e migrations
+
+Precisamos instalar mais alguns pacotes
+
+Intalando o bcrypt para poder fazer a criptografia da senha e instalar outras coisas
+
+npm install -s @types/bcryptjs @types/body-parser @types/cors @types/helmet @types/jsonwebtoken
+
+Instalando o supertest, nodemon, jest 
+npm install --save-dev supertest nodemon jest @types/jest @types/supertest @types/express
+npm install --save-dev ts-jest
+
+Vamos fazer uma configuração no tsconfig 
+
+Criando a configuração inicial do jest
+npx ts-jest config:init
+
+Agora vamos configurar o nossos coando de scripts
+"scripts": {
+      Vamos usar o nodemon no lugar do ts-node, porque o nodemon e melhor
+
+      "dev": "nodemon src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+
+      criando o comando de testes
+      "test": "jest --coverage"
+
+      criando o comando de build
+      "build": "tsc"
+}
+
+Configurações feitas comando criados agora vamos criar o projeto
+
+Vamos começar pelo index.ts vams mudar algumas coisas vamos recrar o index
+
+

@@ -1,0 +1,17 @@
+{
+   // fazendo a exclusão da ação do typescript
+   "exclude": ["./coverage", "./dist", "__tests__", "jest.config.ts"],
+   "compilerOptions": {
+      "lib": [
+         "es5",
+         "es6"
+      ],
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./build",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true
+   }
+}
