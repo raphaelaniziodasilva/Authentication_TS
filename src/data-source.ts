@@ -16,4 +16,4 @@ export const AppDataSource = new DataSource({
     subscribers: [],
 })
 
-// Aqui e o nosso arquivo de configuração do banco de dado, com o banco configurado vamos criar a conexão a para o index.ts para fazer a conexão
+// Aqui e o nosso arquivo de configuração do banco de dado, com o banco configurado vamos criar a conexão va para o index.ts para fazer a conexão
