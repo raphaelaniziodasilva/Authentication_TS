@@ -36,6 +36,8 @@ npm install -s @types/bcryptjs @types/body-parser @types/cors @types/helmet @typ
 Instalando o supertest, nodemon, jest 
 npm install --save-dev supertest nodemon jest @types/jest @types/supertest @types/express
 npm install --save-dev ts-jest
+npm install -s class-validator
+
 
 Vamos fazer uma configuração no tsconfig 
 
