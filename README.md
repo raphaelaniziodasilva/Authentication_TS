@@ -1,6 +1,8 @@
 # Awesome Project Build with TypeORM
 
-## API de autenticação com TypeORM
+## API de autenticação Utilizando TypeORM
+
+Construindo ua api de validação
 
 Steps to run this project:
 
