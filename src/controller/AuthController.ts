@@ -14,7 +14,6 @@ import { User} from "../entity/User"
 
 // importando a configuração aonde tem a chave do jwt
 import config from "../config/config"
-import { rmSync } from "fs"
 import { validate } from "class-validator"
 
 // criando a classe AuthController que vai conter varios metodos, ou seja é uma classe que controla uma parte do meu sistema, aqui vamos desenvolver metodos que vão nos auxiliar no contexto de autenticação
@@ -49,7 +48,6 @@ class AuthController {
         if(!user.checkIfUnencryptedPasswordIsValid(password)) {
             return res.status(401).send("Password or user not found")
         }
-
         // com usuario achado e o password correto vamos gerar um token para o usuario, precisamos cadastrar o usuario no jwt para gerar o token
         const token = jwt.sign(
             {userId: user.id, username: user.username}, // passando o id e username
@@ -84,7 +82,7 @@ class AuthController {
 
         try {
             // agora vamos pegar por id porque eu ja conheço o id do usuario e deixei armazenado no locals que esta no começo dessa função 
-            user = await userRepository.findOneOrFail(id)
+            user = await userRepository.findOneOrFail({where: id})
         } catch (error) {
             return res.status(401).send("User not found!")  
         }
@@ -98,9 +96,9 @@ class AuthController {
         user.password = newPassword
 
         // o validator vai la no banco de dados e vai validar a nova senha que foi definida
-        const errors = await validate(user) 
+        const errors = await validate(user)
         if(errors.length > 0) {
-            return res.status(400).send(errors)   
+            return res.status(400).send(errors)
         }
 
         // a nova senha não foi criptada, vamos fazer a criptação da nova senha por motivos de segurança

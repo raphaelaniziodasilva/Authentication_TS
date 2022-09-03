@@ -13,9 +13,10 @@ export const checkRole = (roles: Array<string>) => {
         // estamos pegando as informações do usuario do repostorio de usuario, ou seja estou pegando as informações do usuario que esta no banco de dados
         const userRepository = AppDataSource.getRepository(User)
         let user: User
+        
         try {
             // estamos sando uma função pronta do TypeOrm que vai fazer uma query no banco de dados tentando pegar um usuario pelo id e se der falha ele vai nos retorna uma exceção que vai ser tratado pelo catch
-            user = await userRepository.findOneOrFail(id)
+            user = await userRepository.findOneOrFail({where: id})
         } catch(error: any) {
             res.status(401).send(error.message)
 

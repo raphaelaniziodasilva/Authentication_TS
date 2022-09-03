@@ -12,4 +12,4 @@ routes.use("/user", user)
 
 export default routes
 
-// Agora vamos comecar a desenvolver os middleware
+// Agora vamos começar a desenvolver os middleware

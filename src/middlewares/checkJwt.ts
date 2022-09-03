@@ -15,8 +15,8 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
 
     try {
         // vai verificar o token no arquivo de configuração que e o config.jwtSecret que esta na pasta config
-        jwtPayload = <any>jwt.verify(token, config.jwtSecret)
 
+        jwtPayload = <any>jwt.verify(token, config.jwtSecret)
         // estamos armazenando o Payload que e uma instancia da verificação do token que vem la do config.jwtSecret, essa linha esta definido que o jwtPayload vai ser a resposta quando vier 
         res.locals.jwtPayload = jwtPayload
 
@@ -24,7 +24,6 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     } catch(error:any) {
         res.status(401).send
     }
-
 
     // Agora vamos criar uma funcionalidade para fazer a expiração do token ou seja vamos acabar com a seçao do usuario depois de uma hora de execução. Depois de uma hora logado o usuario vai expirar e não vai mais funcionar 
     const {userId, username} = jwtPayload
