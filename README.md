@@ -2,7 +2,7 @@
 
 ## API de autenticação Utilizando TypeORM
 
-Construindo ua api de validação
+Construindo uma api de validação, aula com o professor
 
 Steps to run this project:
 
